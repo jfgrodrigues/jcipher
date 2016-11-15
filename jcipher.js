@@ -9,7 +9,6 @@ var inverter = function (stringInicial){
 	for (i=stringInicial.length; i>=0; i--){
 		stringInvertida += stringInicial.charAt(i);
 	}
-	console.log("stringInvertida: "+stringInvertida);
 	return stringInvertida;
 }
 
