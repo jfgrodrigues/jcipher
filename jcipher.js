@@ -44,6 +44,6 @@ var descriptografar = function (mensagem, chave){
 		return msgDecifrada.slice(chave.length, corte);
 	} else { 
 		alert('chave de criptografia incompativel');
-		return "chave de criptografia incompativel";
+		return mensagem;
 	}
 }
