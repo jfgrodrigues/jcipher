@@ -31,18 +31,19 @@ var decifrar = function (mensagemCriptografada, chave){
 var descriptografar = function (mensagem, chave){
 	var msgDecifrada = decifrar(mensagem, chave);
 	var verifChave = "";
+	var corte;
+	if (chave.length < 10){
+		corte = mensagem.length-1;
+	} else if (chave.length<100){
+		corte = mensagem.length-2;
+	}
 	for (i=0; i<chave.length; i++){
 		verifChave += msgDecifrada.charAt(i);
 	}
-	if (verifChave == inverter(chave)) {
-		var corte;
-		if (chave.length < 10){
-			corte = mensagem.length-1;
-		} else if (chave.length<100){
-			corte = mensagem.length-2;
-		}
+	if ((verifChave == inverter(chave)) && (parseInt(msgDecifrada.slice(corte)))) {
 		return msgDecifrada.slice(chave.length, corte);
 	} else { 
+		alert('chave de criptografia incompativel');
 		return "chave de criptografia incompativel";
 	}
 }
