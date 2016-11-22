@@ -40,7 +40,7 @@ var descriptografar = function (mensagem, chave){
 	for (i=0; i<chave.length; i++){
 		verifChave += msgDecifrada.charAt(i);
 	}
-	if ((verifChave == inverter(chave)) && (parseInt(msgDecifrada.slice(corte)))) {
+	if ((verifChave == inverter(chave)) && (parseInt(msgDecifrada.slice(corte)) == chave.length)) {
 		return msgDecifrada.slice(chave.length, corte);
 	} else { 
 		alert('chave de criptografia incompativel');
