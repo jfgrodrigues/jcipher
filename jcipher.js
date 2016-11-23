@@ -1,7 +1,7 @@
 var criptografar = function (msgPlana, chave){
 	msgPlana += chave.length;
 	msgNova = inverter(chave)+msgPlana;
-	return cifrar(msgNova, chave);
+	return cifrar(inverter(cifrar(msgNova, chave)),chave);
 }
 
 var inverter = function (stringInicial){
@@ -29,7 +29,7 @@ var decifrar = function (mensagemCriptografada, chave){
 }
 
 var descriptografar = function (mensagem, chave){
-	var msgDecifrada = decifrar(mensagem, chave);
+	var msgDecifrada = decifrar(inverter(decifrar(mensagem, chave)), chave);
 	var verifChave = "";
 	var corte;
 	if (chave.length < 10){
